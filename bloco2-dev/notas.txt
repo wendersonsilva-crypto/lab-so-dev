@@ -1,0 +1,54 @@
+# Atividade 4 — Do código-fonte ao executável
+# Preencha este arquivo durante a atividade.
+# ─────────────────────────────────────────────────────
+
+# FASE 1 — Pré-processador (gcc -E)
+# Quantas linhas tem soma.i? O que o pré-processador expandiu?
+
+Linhas em soma.i:
+Observação:
+
+
+# FASE 2 — Assembly (gcc -S)
+# Cole aqui 5 a 10 linhas de soma.s que você considera mais
+# interessantes e explique o que cada uma faz.
+
+Trecho de soma.s:
+
+Explicação:
+
+
+# FASE 3 — Código objeto (gcc -c)
+# Cole a saída de: file soma.o
+
+file soma.o:
+
+# Cole a saída de: nm soma.o
+
+nm soma.o:
+
+# Quais símbolos aparecem? O que significa o marcador "U" ao lado
+# de printf?
+
+Observação sobre nm:
+
+
+# FASE 4 — Ligação (gcc soma.o -o soma)
+# O que mudou após a ligação? Execute ./soma e registre a saída.
+
+Saída de ./soma:
+
+
+# QUESTÕES DE SÍNTESE
+
+# 1. O nm mostrou printf como "U" (undefined). Em qual slide da
+#    apresentação esse mesmo problema apareceu? O que o ligador
+#    faz com esse símbolo?
+
+Resposta 1:
+
+
+# 2. Compare soma.i com soma.s: qual das duas saídas é análoga
+#    ao "código objeto" do montador histórico? Justifique.
+
+Resposta 2:

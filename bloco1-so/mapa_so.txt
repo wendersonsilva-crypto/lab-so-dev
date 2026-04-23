@@ -1,0 +1,36 @@
+# Atividade 1 — O sistema de arquivos como mapa do SO
+# Preencha este arquivo durante a atividade.
+# ─────────────────────────────────────────────────────
+
+# PARTE A — Exploração da hierarquia
+# Para cada diretório, registre o comando executado e uma linha
+# explicando a função do diretório com suas próprias palavras.
+
+/proc
+  
+
+/proc/cpuinfo
+  
+
+/proc/meminfo
+  
+
+/proc/uptime
+  
+
+/bin
+
+  
+/dev
+  
+
+/etc
+  
+
+
+# PARTE B — Questão de reflexão
+# A apresentação mostrou que o supervisor controlava o acesso a I/O
+# e que rotinas de dispositivo traduziam comandos.
+# Em qual diretório do Linux você reconhece essa função?
+
+Resposta:
