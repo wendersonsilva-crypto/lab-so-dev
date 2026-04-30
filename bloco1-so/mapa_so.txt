@@ -1,4 +1,4 @@
-# Atividade 1 — O sistema de arquivos como mapa do SO
+#Atividade 1 — O sistema de arquivos como mapa do SO
 # Preencha este arquivo durante a atividade.
 # ─────────────────────────────────────────────────────
 
@@ -7,25 +7,180 @@
 # explicando a função do diretório com suas próprias palavras.
 
 /proc
-  
+  1             39            buddyinfo     ioports       self
+10            4             bus           irq           slabinfo
+11            40            cmdline       kallsyms      softirqs
+12            41            consoles      kcore         stat
+13            42            cpuinfo       kmsg          swaps
+14            43            crypto        kpagecount    sys
+15            5             devices       kpageflags    sysvipc
+16            57            diskstats     loadavg       thread-self
+17            58            dma           locks         timer_list
+2             6             driver        meminfo       tty
+3             63            execdomains   misc          uptime
+34            64            fb            mounts        version
+35            7             filesystems   net           vmallocinfo
+36            76            fs            pagetypeinfo  vmstat
+37            8             interrupts    partitions    zoneinfo
+38            9             iomem         sched_debug
 
 /proc/cpuinfo
-  
+  processor       : 0
+vendor_id       : AuthenticX86
+cpu family      : 5
+model           : 4
+model name      : 05/04
+stepping        : 3
+cpu MHz         : 100.000
+fdiv_bug        : no
+f00f_bug        : no
+coma_bug        : no
+fpu             : yes
+fpu_exception   : yes
+cpuid level     : 1
+wp              : yes
+flags           : fpu tsc msr pae cx8 cmov clflush mmx fxsr sse sse2 rdtscp cpui
+d svm npt
+bugs            :
+bogomips        : 200.00
+clflush size    : 64
+cache_alignment : 64
+address sizes   : 32 bits physical, 32 bits virtual
+power management:
 
 /proc/meminfo
-  
+  MemTotal:         187244 kB
+MemFree:          181604 kB
+MemAvailable:     179368 kB
+Buffers:               0 kB
+Cached:              816 kB
+SwapCached:            0 kB
+Active:              876 kB
+Inactive:            232 kB
+Active(anon):        292 kB
+Inactive(anon):        4 kB
+Active(file):        584 kB
+Inactive(file):      228 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:                 0 kB
+Writeback:             0 kB
+AnonPages:           320 kB
+Mapped:              764 kB
+Shmem:                 4 kB
+Slab:               2816 kB
+SReclaimable:       1252 kB
+SUnreclaim:         1564 kB
+KernelStack:         256 kB
+PageTables:           60 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:       93620 kB
+Committed_AS:       1088 kB
+VmallocTotal:     843656 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+DirectMap4k:      196608 kB
+DirectMap2M:           0 kB
 
 /proc/uptime
-  
+ 199.98 199.82
 
 /bin
-
-  
+arch            false           lzop            rm
+ash             fatattr         makemime        rmdir
+base64          fdflush         mkdir           run-parts
+bash            fgrep           mknod           sed
+bbconfig        findmnt         mktemp          setpriv
+bbsuid          fsync           more            setserial
+busybox         getopt          mount           sh
+busybox-extras  grep            mountpoint      sleep
+cat             gunzip          mpstat          stat
+chgrp           gzip            mv              stty
+chmod           hostname        netstat         su
+chown           ionice          nice            sync
+conspy          iostat          pidof           tar
+cp              ipcalc          ping            touch
+date            kbd_mode        ping6           true
+dd              kill            pipe_progress   umount
+df              link            printenv        uname
+dmesg           linux32         ps              usleep
+dnsdomainname   linux64         pwd             watch
+dumpkmap        ln              rc-status       wdctl
+echo            login           red             zcat
+ed              ls              reformime       zsh
+egrep           lsblk           rev             zsh-5.8
+ 
 /dev
-  
+  console             tty11               tty45
+cpu_dma_latency     tty12               tty46
+full                tty13               tty47
+hvc0                tty14               tty48
+hvc1                tty15               tty49
+hvc2                tty16               tty5
+hvc3                tty17               tty50
+hvc4                tty18               tty51
+hvc5                tty19               tty52
+hvc6                tty2                tty53
+hvc7                tty20               tty54
+kmem                tty21               tty55
+kmsg                tty22               tty56
+kvm                 tty23               tty57
+loop-control        tty24               tty58
+loop0               tty25               tty59
+loop1               tty26               tty6
+loop2               tty27               tty60
+loop3               tty28               tty61
+loop4               tty29               tty62
+loop5               tty3                tty63
+loop6               tty30               tty7
+loop7               tty31               tty8
+mem                 tty32               tty9
+memory_bandwidth    tty33               ttyS0
+network_latency     tty34               ttyS1
+network_throughput  tty35               ttyS2
+null                tty36               ttyS3
+port                tty37               urandom
+ptmx                tty38               vcs
+pts                 tty39               vcs1
+random              tty4                vcsa
+shm                 tty40               vcsa1
+tty                 tty41               vga_arbiter
+tty0                tty42               vport0p0
+tty1                tty43               zero
+tty10               tty44
 
 /etc
-  
+ ImageMagick-7         logrotate.d           screenrc
+X11                   lynx.cfg              securetty
+alpine-release        lynx.lss              services
+apk                   mc                    shadow
+ca-certificates       modprobe.d            shadow-
+ca-certificates.conf  modules               shells
+conf.d                modules-load.d        skel
+crontabs              motd                  ssh
+dhcpcd.conf           mtab                  ssl
+dhcpcd.conf.org       nanorc                sudo.conf
+dillo                 network               sudo_logsrvd.conf
+fltk                  openldap              sudoers
+fonts                 opt                   sudoers.d
+fstab                 os-release            sudoers.dist
+group                 pango                 sysctl.conf
+group-                passwd                sysctl.d
+gtk-2.0               passwd-               terminfo
+gtk-3.0               periodic              ts.conf
+hostname              php7                  udhcpd.conf
+hosts                 pkcs11                vdpau_wrapper.cfg
+init.d                profile               xattr.conf
+inittab               profile.d             xdg
+inputrc               protocols             xml
+issue                 rc.conf               xpdfrc
+joe                   resolv.conf           zsh
+lftp.conf             runlevels
+local.d               sasl2
 
 
 # PARTE B — Questão de reflexão
@@ -33,4 +188,4 @@
 # e que rotinas de dispositivo traduziam comandos.
 # Em qual diretório do Linux você reconhece essa função?
 
-Resposta:
+Resposta:/dev
