@@ -1,25 +1,25 @@
 #!/bin/bash
 # relatorio.sh — Atividade 5
-# Complete o script conforme as instruções da ficha.
+# Script de extração de métricas de hardware e sistema.
 # ─────────────────────────────────────────────────────
 
-echo "=== RELATORIO DO SISTEMA — $(date) ==="
+echo "=== RELATÓRIO DE DESEMPENHO — $(date +'%d/%m/%Y %H:%M:%S') ==="
 echo
 
-echo "--- Processador ---"
-grep "model name" /proc/cpuinfo | head -1
+echo "[⚙️] Informações do Processador:"
+awk -F: '/model name/ {print $2; exit}' /proc/cpuinfo | sed 's/^[ \t]*//'
 echo
 
-echo "--- Memoria (kB) ---"
-grep -E "MemTotal|MemFree" /proc/meminfo
+echo "[📊] Estado da Memória RAM:"
+awk '/MemTotal|MemFree/ {printf "  %-10s %s KB\n", $1, $2}' /proc/meminfo | tr -d ':'
 echo
 
-echo "--- Tempo ligado (s) ---"
-cut -d' ' -f1 /proc/uptime
+echo "[⏱️] Tempo de Atividade (Uptime):"
+awk '{printf "  %d segundos ligado\n", $1}' /proc/uptime
 echo
 
-echo "--- Processos em execucao ---"
-ps aux | wc -l
+echo "[⚡] Carga de Trabalho Atual:"
+echo "  Total de processos ativos: $(ps -e | wc -l)"
 echo
 
-echo "=== FIM DO RELATORIO ==="
+echo "===             FIM DO RELATÓRIO               ==="
