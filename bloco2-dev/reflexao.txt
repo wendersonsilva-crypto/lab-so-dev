@@ -1,31 +1,23 @@
-# Atividades 5 e 6 — Questões de síntese
-# Preencha este arquivo durante e após as atividades.
-# ─────────────────────────────────────────────────────
-
-# ATIVIDADE 5 — O shell como JCL moderno
-
-# O slide da genealogia mostrou que o JCL usava comandos como
-# // ASSIGN SYS004,TAPE para associar um trabalho a um dispositivo.
-# No shell moderno, qual mecanismo cumpre papel equivalente?
-# Dê um exemplo concreto do que você usou nesta atividade.
-
+Atividades 6 e 7 — Questões de síntese
+Preencha este arquivo durante e após as atividades.
+─────────────────────────────────────────────────────
+ATIVIDADE 6 — O shell como JCL moderno
+O slide da genealogia mostrou que o JCL usava comandos como
+// ASSIGN SYS004,TAPE para associar um job a um dispositivo.
+No shell moderno, qual mecanismo cumpre papel equivalente?
 Resposta:
+No shell moderno, essa função é realizada pelos operadores de redirecionamento de entrada e saída (como >, <, >>) e pelo uso de pipes (|), combinados com os descritores de arquivos padrão (stdin, stdout, stderr). Esses mecanismos permitem desviar o fluxo de dados de um programa diretamente para arquivos, dispositivos ou outros processos, cumprindo a mesma função de vinculação do JCL.
 
-
-# ─────────────────────────────────────────────────────
-
-# ATIVIDADE 6 — Make
-
-# 1. O monitor histórico verificava a conclusão de cada job antes
-#    de despachar o próximo. No make, qual mecanismo cumpre esse
-#    papel? Como o make sabe que não precisa recompilar um arquivo
-#    que não mudou?
-
+ATIVIDADE 7 — Make
+1. O monitor histórico verificava a conclusão de cada job antes
+de despachar o próximo. No make, qual mecanismo cumpre esse
+depósito? Como o make sabe que não precisa recompilar um arquivo
+que não mudou?
 Resposta 1:
+O make gerencia isso através do seu sistema de árvore de dependências e regras de inferência. Ele decide o que precisa ser executado comparando o timestamp (data e hora de modificação) do arquivo alvo (target) com o dos seus arquivos de origem (dependências). Se o arquivo de origem for mais recente que o executável ou o objeto já gerado, o make detecta a alteração e roda a recompilação; caso contrário, ele ignora a etapa e poupa tempo.
 
-
-# 2. O monitor unificava "supervisor, carregador e rotinas de I/O
-#    sob uma interface textual". O que o Makefile unifica no fluxo
-#    de desenvolvimento moderno?
-
+2. O monitor unificava "supervisor, carregador e rotinas de I/O
+sob uma interface textual". O que o Makefile unifica no fluxo
+de desenvolvimento moderno?
 Resposta 2:
+O Makefile atua como um hub central de automação, integrando em um único script todas as etapas do ciclo de vida do software: desde a compilação e ligação de código, até a execução de testes automatizados, limpeza de arquivos temporários (clean), geração de documentação e rotinas de instalação/deploy.
