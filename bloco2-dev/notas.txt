@@ -1,54 +1,47 @@
-# Atividade 4 — Do código-fonte ao executável
-# Preencha este arquivo durante a atividade.
-# ─────────────────────────────────────────────────────
+FASE 1 — Pré-processador (gcc -E)
+Quantas linhas tem soma.i? O que o pré-processador expandiu?
+Linhas em soma.i: 752
+Observação: O pré-processador incluiu o cabeçalho das bibliotecas (como #include <stdio.h>), substituindo as diretivas pelo código real dos cabeçalhos, além de remover os comentários.
 
-# FASE 1 — Pré-processador (gcc -E)
-# Quantas linhas tem soma.i? O que o pré-processador expandiu?
-
-Linhas em soma.i:
-Observação:
-
-
-# FASE 2 — Assembly (gcc -S)
-# Cole aqui 5 a 10 linhas de soma.s que você considera mais
-# interessantes e explique o que cada uma faz.
-
+FASE 2 — Assembly (gcc -S)
+Cole aqui 5 a 10 linhas de soma.s que você considera mais
+interessantes.
 Trecho de soma.s:
+.file   "soma.c"
+.option nopic
+.text
+.align  1
+.globl  soma
+.type   soma, @function
 
-Explicação:
-
-
-# FASE 3 — Código objeto (gcc -c)
-# Cole a saída de: file soma.o
-
+FASE 3 — Código objeto (gcc -c)
+Cole a saída de: file soma.o
 file soma.o:
+soma.o: ELF 64-bit LSB relocatable, UCB RISC-V, version 1 (SYSV), not stripped
 
-# Cole a saída de: nm soma.o
-
+Cole a saída de: nm soma.o
 nm soma.o:
+0000000000000000 r .LC0
+0000000000000028 T main
+U printf
+0000000000000000 T soma
 
-# Quais símbolos aparecem? O que significa o marcador "U" ao lado
-# de printf?
-
+Quais símbolos aparecem? O que significa o marcador "U" ao lado
+de printf?
 Observação sobre nm:
+Os símbolos que aparecem são os nomes de funções, variáveis e constantes mapeados no arquivo (neste caso: .LC0, main, printf e soma). O marcador 'U' (Undefined) indica que o código faz uso da função printf, mas a sua implementação real não está presente neste arquivo .o. Ela precisa ser buscada externamente.
 
-
-# FASE 4 — Ligação (gcc soma.o -o soma)
-# O que mudou após a ligação? Execute ./soma e registre a saída.
-
+FASE 4 — Ligação (gcc soma.o -o soma)
+O que mudou após a ligação? Execute ./soma e registre a saída.
 Saída de ./soma:
+12
 
+QUESTÕES DE SÍNTESE
+1. O montador histórico da genealogia resolvia rótulos (labels) em endereços de memória.
+Na saída do nm soma.o, printf aparece marcado como U (Undefined). Qual é o papel do
+ligador em relação a esse símbolo?
+Resposta 1: A função do ligador (linker) é conectar as pontas soltas. Ele pega o símbolo printf (que estava indefinido no .o) e varre as bibliotecas padrão do sistema (como a libc) para encontrar onde essa função está implementada de fato. Uma vez localizada, o ligador amarra os endereços de memória corretos para que a chamada da função funcione no executável final.
 
-# QUESTÕES DE SÍNTESE
-
-# 1. O nm mostrou printf como "U" (undefined). Em qual slide da
-#    apresentação esse mesmo problema apareceu? O que o ligador
-#    faz com esse símbolo?
-
-Resposta 1:
-
-
-# 2. Compare soma.i com soma.s: qual das duas saídas é análoga
-#    ao "código objeto" do montador histórico? Justifique.
-
-Resposta 2:
+2. Você gerou três arquivos intermediários: soma.i (pré-processado), soma.s (assembly),
+soma.o (objeto). Qual desses é o que o computador realmente executa?
+Resposta 2: Na realidade, o processador não executa diretamente nenhum desses três arquivos intermediários de forma isolada. O arquivo final gerado após a etapa do ligador (o executável soma) é o que roda na máquina. Dentre os intermediários, o soma.o é o mais próximo da linguagem de máquina (binário), mas ele ainda precisa do processo de ligação para resolver as dependências externas (como o printf) e se tornar um programa executável completo.
